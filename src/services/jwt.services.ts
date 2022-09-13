@@ -8,10 +8,7 @@ const jwtSecret = process.env.JWT_SECRET;
 const createToken = (user: IUser) => {
   const token = jwt.sign({
     data: user,
-  }, jwtSecret as string, {
-    expiresIn: '15m',
-    algorithm: 'HS256',
-  });
+  }, jwtSecret as string);
 
   return token;
 };

@@ -12,7 +12,7 @@ const addUser = async (user: IUser): Promise<IUser> => {
     [username, classe, level, password],
   );
 
-  const userAdded: IUser = { username, classe, level, password };
+  const userAdded: IUser = { username, classe, level };
   return userAdded;
 };
 
