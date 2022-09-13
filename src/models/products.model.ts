@@ -17,4 +17,12 @@ const addProduct = async (product: IProduct): Promise <IProduct> => {
   return productWithId;
 };
 
-export default { getAll, addProduct };
+const getById = async (orderId: number): Promise<IProduct[]> => {
+  const query = 'SELECT id FROM Trybesmith.Products WHERE orderId = ?';
+
+  const [result] = await connection.execute(query, [orderId]);
+
+  return result as IProduct[];
+};
+
+export default { getAll, addProduct, getById };
