@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import IUser from '../interfaces/user.interface';
 
 dotenv.config();
-const jwtSecret = process.env.JWT_SECRET;
+const jwtSecret = process.env.JWT_SECRET || 'secret';
 
 const createToken = (user: IUser) => {
   const token = jwt.sign({
