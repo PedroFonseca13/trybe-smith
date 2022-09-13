@@ -16,4 +16,13 @@ const addUser = async (user: IUser): Promise<IUser> => {
   return userAdded;
 };
 
-export default { addUser };
+const getUserByUserName = async (username: string): Promise<IUser | null> => {
+  const query = 'SELECT * FROM Trybesmith.Users WHERE username = ?';
+  const values = [username];
+  const [result] = await connection.execute(query, values);
+
+  const [user] = result as IUser[];
+  return user || null;
+};
+
+export default { addUser, getUserByUserName };
